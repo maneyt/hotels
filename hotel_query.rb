@@ -9,26 +9,26 @@ class HotelQuery
 
   def run
     read_file
-    property = user_query
-    find_hotel(property)
+    property = query_user
+    puts find_hotel(property)
   end
 
   private
 
-  attr_accessor :hotels
+  attr_reader :hotels
 
   def find_hotel(property)
-    puts hotels.select { |hotel| hotel.name.strip == property }
+    hotels.select { |hotel| hotel.name.strip == property }
   end
 
-  def user_query
+  def query_user
     print "which property? > "
-    gets.chomp
+    property = gets.chomp
   end
 
   def read_file
     CSV.foreach(@filename, headers: true) do |row|
-      hotels << Hotel.new(row)
+      @hotels << Hotel.new(row)
     end
   end
 end

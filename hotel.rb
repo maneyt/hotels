@@ -4,6 +4,7 @@ class Hotel
   end
 
   attr_reader :hotel_data
+
   def name
     hotel_data.fetch("Hotel")
   end
@@ -21,8 +22,6 @@ class Hotel
   end
 
   def to_s
-    @hotel_data.each do |key,value|
-      puts "#{key}: #{value}"
-    end
+    "#{name}\nPhone: #{phone}\nCity: #{city}\nRooms: #{rooms}"
   end
 end
