@@ -8,8 +8,9 @@ class HotelQuery
 
   def run
     read_file
+
   end
-  
+
   def read_file
     CSV.foreach(@filename, headers: true) do |row|
       puts row["Hotel"]
