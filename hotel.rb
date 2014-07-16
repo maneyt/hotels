@@ -6,7 +6,7 @@ class Hotel
   attr_reader :hotel_data
 
   def name
-    hotel_data.fetch("Hotel").strip
+    hotel_data.fetch("Hotel")
   end
 
   def city
@@ -18,7 +18,7 @@ class Hotel
   end
 
   def rooms
-    hotel_data.fetch("Number of Singles") + hotel_data.fetch("Number of Doubles")
+    hotel_data.fetch("Number of Singles").delete(",").to_i + hotel_data.fetch("Number of Doubles").to_i
   end
 
   def display

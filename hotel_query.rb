@@ -1,6 +1,7 @@
 require "csv"
 require "./hotel"
 require "./null_hotel"
+require "./clean_hotel_row"
 
 class HotelQuery
   def initialize(filename)
@@ -29,7 +30,8 @@ class HotelQuery
 
   def read_file
     CSV.foreach(@filename, headers: true) do |row|
-      @hotels << Hotel.new(row)
+      cleaned_row = CleanHotelRow.new(row).clean
+      @hotels << Hotel.new(cleaned_row)
     end
   end
 end
