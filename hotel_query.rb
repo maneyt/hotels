@@ -30,8 +30,7 @@ class HotelQuery
 
   def read_file
     CSV.foreach(@filename, headers: true) do |row|
-      cleaned_row = CleanHotelRow.new(row).clean
-      @hotels << Hotel.new(cleaned_row)
+      @hotels << Hotel.new(row)
     end
   end
 end
