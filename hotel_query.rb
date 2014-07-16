@@ -1,5 +1,6 @@
 require "csv"
 require "./hotel"
+require "./null_hotel"
 
 class HotelQuery
   def initialize(filename)
@@ -9,21 +10,21 @@ class HotelQuery
 
   def run
     read_file
-    property = query_user
-    puts find_hotel(property)
+    property_name = query_user
+    find_hotel(property_name).display
   end
 
   private
 
   attr_reader :hotels
 
-  def find_hotel(property)
-    hotels.select { |hotel| hotel.name.strip == property }
+  def find_hotel(property_name)
+    hotels.find( -> { NullHotel.new }) { |hotel| hotel.name.strip == property_name }
   end
 
   def query_user
     print "which property? > "
-    property = gets.chomp
+    property_name = gets.chomp
   end
 
   def read_file

@@ -21,7 +21,10 @@ class Hotel
     hotel_data.fetch("Number of Singles") + hotel_data.fetch("Number of Doubles")
   end
 
-  def to_s
-    "#{name}\nPhone: #{phone}\nCity: #{city}\nRooms: #{rooms}"
+  def display
+    puts name
+    puts "Phone: #{phone}"
+    puts "City: #{city}"
+    puts "Rooms: #{rooms}"
   end
 end
