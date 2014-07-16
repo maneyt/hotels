@@ -6,7 +6,7 @@ class Hotel
   attr_reader :hotel_data
 
   def name
-    hotel_data.fetch("Hotel")
+    hotel_data.fetch("Hotel").strip
   end
 
   def city

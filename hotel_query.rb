@@ -19,7 +19,7 @@ class HotelQuery
   attr_reader :hotels
 
   def find_hotel(property_name)
-    hotels.find( -> { NullHotel.new }) { |hotel| hotel.name.strip == property_name }
+    hotels.find( -> { NullHotel.new }) { |hotel| hotel.name == property_name }
   end
 
   def query_user
