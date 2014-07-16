@@ -11,7 +11,6 @@ class HotelQuery
   def run
     read_file
     property_name = query_user
-    find_hotel(property_name).display
   end
 
   private
@@ -24,7 +23,7 @@ class HotelQuery
 
   def query_user
     print "which property? > "
-    property_name = gets.chomp
+    gets.chomp
   end
 
   def read_file
