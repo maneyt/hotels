@@ -11,6 +11,7 @@ class HotelQuery
   def run
     read_file
     property_name = query_user
+    find_hotel(property_name).display
   end
 
   private
