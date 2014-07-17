@@ -6,25 +6,25 @@ class Hotel
   attr_reader :hotel_data
 
   def name
-    hotel_data.fetch("Hotel").strip
+    hotel_data.name
   end
 
   def city
-    hotel_data.fetch("City")
+    hotel_data.city
   end
 
   def phone
-    hotel_data.fetch("Phone Number")
+    hotel_data.phone
   end
 
   def rooms
-    hotel_data.fetch("Number of Singles") + hotel_data.fetch("Number of Doubles")
+    hotel_data.rooms
   end
 
   def display
     puts name
+    puts "Location: #{city}"
     puts "Phone: #{phone}"
-    puts "City: #{city}"
     puts "Rooms: #{rooms}"
   end
 end
