@@ -3,8 +3,6 @@ class CleanHotelRow
     @hotel_data = hotel_data
   end
 
-  attr_reader :hotel_data
-
   def name
     hotel_data.fetch("Hotel").strip
   end
@@ -23,8 +21,10 @@ class CleanHotelRow
 
   private
 
+  attr_reader :hotel_data
+
   def clean_phone(phone)
-    phone.delete! "(" ")" "."
+    phone.delete! "()."
     if phone.length != 12
       phone.insert(3, "-")
       phone.insert(7, "-")
